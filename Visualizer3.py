@@ -21,6 +21,13 @@ class Visualizer3(object):
 
         self.setup_ui(Form)
 
+        # finish "setting up" the ui with some default values for sliders
+        # so that images load on launch not after user input
+        self.frameSlider.setValue(1)
+        self.frontSliceSlider.setValue(100)
+        self.topSliceSlider.setValue(100)
+        self.sideSliceSlider.setValue(100)
+
     def setup_ui(self, Form):
         Form.setObjectName("Form")
         Form.resize(830, 300)
