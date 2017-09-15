@@ -1,8 +1,8 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+import numpy as np
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QGraphicsScene
 
 from util import load_frame, ndarray2pixmap
-import numpy as np
 
 
 class Visualizer3(object):
@@ -199,7 +199,7 @@ class Visualizer3(object):
         self.sideView.setScene(scene)
 
     def frame_slider_changed(self, value):
-        self.frame = self.frames[value-1]
+        self.frame = self.frames[value - 1]
 
         self.frameLineEdit.setText(str(value))
 
