@@ -1,13 +1,14 @@
-from PyQt5.QtWidgets import QApplication, QWidget
 import sys
-from Visualizer3 import Visualizer3
 
+from PyQt5.QtWidgets import QApplication, QMainWindow
+
+from MainWindow import Ui_MainWindow
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    w = QWidget()
+    w = QMainWindow()
     w.setWindowTitle('Patient1')
-    form = Visualizer3(w)
+    form = Ui_MainWindow(w)
     w.show()
 
     sys.exit(app.exec_())
