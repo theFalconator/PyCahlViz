@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QWidget
-import sys, os
+import sys
 from Visualizer3 import Visualizer3
 
 
