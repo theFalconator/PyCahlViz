@@ -1,9 +1,30 @@
 # -*- coding: utf-8 -*-
+import numpy as np
 from PyQt5 import QtCore, QtWidgets
+
+from util import load_frame
 
 
 class Ui_MainWindow(object):
     def __init__(self, MainWindow):
+        self.frames = []
+        for i in range(1, 20):
+            self.frames.append(load_frame('Patient1', i))
+
+        self.frame = self.frames[0]
+
+        self.top = np.zeros((224, 240), dtype='uint8')
+        self.front = np.zeros((208, 240), dtype='uint8')
+        self.side = np.zeros((208, 224), dtype='uint8')
+
+        self.setup_ui(MainWindow)
+
+        self.frameSlider.setValue(1)
+        self.frontSliceSlider.setValue(100)
+        self.topSliceSlider.setValue(100)
+        self.sideSliceSlider.setValue(100)
+
+    def setup_ui(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(810, 322)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -157,14 +178,3 @@ class Ui_MainWindow(object):
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionExit)
         self.menubar.addAction(self.menuFile.menuAction())
-
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "Frame"))
-        self.menuFile.setTitle(_translate("MainWindow", "Fi&le"))
-        self.actionOpen.setText(_translate("MainWindow", "Open"))
-        self.actionExit.setText(_translate("MainWindow", "Exit"))
