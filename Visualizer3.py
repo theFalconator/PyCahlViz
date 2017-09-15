@@ -11,7 +11,7 @@ class Visualizer3(object):
         for i in range(1, 20):
             self.frames.append(load_frame('Patient1', i))
 
-        # the current frame
+        # keep track of what frame is being displayed
         self.frame = self.frames[0]
 
         # initialize ndarrays for views with zeros
